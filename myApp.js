@@ -5,6 +5,10 @@ app.use(function(req,res,next){
     console.log(req.method + " " + req.path + " - " + req.ip);
     next();
 });
+app.get("/name", function(req,res){
+    let x = req.query; 
+    res.json({"name" : `${x.first} ${x.last}`});
+});
 app.get("/:word/echo" , function(req,res){
     res.json({"echo" : req.params.word});
 });
